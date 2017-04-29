@@ -3,30 +3,38 @@ using namespace std;
 
 class Document
 {
-public:
-	m_LibraryIDCode;
-	m_CheckoutDuration;
-	m_AuthorName;
+protected:
+	char* m_LibraryIDCode;
+	char* m_CheckoutDuration;
+	char* m_AuthorName;
 
-	void Document::PrintInfo()
+public:
+	void PrintInfo()
 	{
 		cout << "Library ID:" << m_LibraryIDCode << endl;
 		cout << "Checkout Duration:" << m_CheckoutDuration << endl;
 		cout << "Author Name:" << m_AuthorName << endl;
-
 	}
 };
 
 
 
-class Books
+class Book : public Document
 {
+
 protected:
 	int m_month;
 	int m_year;
-
 public:
-	void Display();
+    Book()
+    {
+        m_LibraryIDCode = "010010";
+        m_CheckoutDuration = "22 Days";
+        m_AuthorName = "Some Name"; 
+    }
+    ;
+    ~Book();
+
 };
 
 
@@ -68,6 +76,8 @@ public:
 		switch (MenuChoice)
 		{
 			case 1: cout << "Here is a list of all of our documents by type.";
+					Book simplebook = Book();
+					simplebook.PrintInfo();
 					system("pause");
 					break;
 			case 2: cout << "What book would you like more information on?";
