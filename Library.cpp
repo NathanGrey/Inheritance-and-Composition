@@ -80,38 +80,44 @@ public:
 int main() // Main program
 {
 	char MenuChoice;
-
+	bool Repeat = false;
 	cout << "Welcome to the library! \n"
 			"1. List documents by type \n"
 			"2. Find information on specific book \n"
 			"3. List all documents by author \n"
 			"4. Exit the library application \n";
-
+	do{
 		cin >> MenuChoice;
 		switch (MenuChoice)
 		{
-			case '1': {cout << "Here is a list of all of our documents by type.";
+			case '1': {cout << "Here is a list of all of our documents by type." << endl;
 
                     Book simplebook = Book();
                     simplebook.PrintInfo();
   
 					system("pause");}
+					Repeat = false;
 					break;
-			case '2': {cout << "What book would you like more information on?";
+			case '2': {cout << "What book would you like more information on?" << endl;
 					system("pause");}
+					Repeat = false;
 					break;
-			case '3': {cout << "Here are all the documents arranged by author.";
+			case '3': {cout << "Here are all the documents arranged by author." << endl;
 					system("pause");}
+					Repeat = false;
 					break;
-			case '4': {cout << "Have a nice day!";
+			case '4': {cout << "Have a nice day!" << endl;
 					system("pause");}
+					Repeat = false;
 					break;
 
-			default: {cout << "Invalid choice. Try again.";
-					 cin >> MenuChoice;}
+			default: {cout << "Invalid choice. Try again." <<endl;
+					 Repeat = true;
 					 break;
 		}
-	}
+	   }
+	}while(Repeat == true);
+}
 /* 	====================================[ BUG NOTES ]=========================================
 
 =========================================================================================== */
