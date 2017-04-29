@@ -1,14 +1,17 @@
 #include <iostream>
 using namespace std;
 
+
+
 class Document
 {
 protected:
-	char* m_LibraryIDCode;
-	char* m_CheckoutDuration;
-	char* m_AuthorName;
+	const char* m_LibraryIDCode;
+	const char* m_CheckoutDuration;
+	const char* m_AuthorName;
 
 public:
+
 	void PrintInfo()
 	{
 		cout << "Library ID:" << m_LibraryIDCode << endl;
@@ -26,16 +29,21 @@ protected:
 	int m_month;
 	int m_year;
 public:
-    Book()
-    {
-        m_LibraryIDCode = "010010";
-        m_CheckoutDuration = "22 Days";
-        m_AuthorName = "Some Name"; 
-    }
-    ;
+    Book();
     ~Book();
 
 };
+
+Book :: Book()
+{
+      m_LibraryIDCode = "010010";
+        m_CheckoutDuration = "22 Days";
+        m_AuthorName = "Some Name"; 
+};
+
+Book :: ~Book()
+{
+}
 
 
 
@@ -64,7 +72,7 @@ public:
 
 	int main()
 	{
-		int MenuChoice;
+		char MenuChoice;
 
 		cout << "Welcome to the library! \n"
 				"1. List documents by type \n"
@@ -75,23 +83,26 @@ public:
 		cin >> MenuChoice;
 		switch (MenuChoice)
 		{
-			case 1: cout << "Here is a list of all of our documents by type.";
-					Book simplebook = Book();
-					simplebook.PrintInfo();
-					system("pause");
+			case '1': {cout << "Here is a list of all of our documents by type.";
+
+                    Book simplebook = Book();
+                    simplebook.PrintInfo();
+  
+					system("pause");}
 					break;
-			case 2: cout << "What book would you like more information on?";
-					system("pause");
+			case '2': {cout << "What book would you like more information on?";
+					system("pause");}
 					break;
-			case 3: cout << "Here are all the documents arranged by author.";
-					system("pause");
+			case '3': {cout << "Here are all the documents arranged by author.";
+					system("pause");}
 					break;
-			case 4: cout << "Have a nice day!";
-					system("pause");
+			case '4': {cout << "Have a nice day!";
+					system("pause");}
 					break;
 
-			default: cout << "Invalid choice. Try again.";
-					 cin >> MenuChoice;
+			default: {cout << "Invalid choice. Try again.";
+					 cin >> MenuChoice;}
+					 break;
 		}
 	}
 /* 	====================================[ BUG NOTES ]=========================================
