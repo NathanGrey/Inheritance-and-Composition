@@ -3,16 +3,17 @@ using namespace std; // Sets the namespace
 
 class Document // Creates the Document base class
 {
-protected: // Makes variables accessible by subclasses
+public: // Makes variables accessible by subclasses
+	const char* m_BookTitle;
 	const char* m_LibraryIDCode;
 	const char* m_CheckoutDuration;
 	const char* m_AuthorName;
 	const char* m_DocumentType;
 
-public:
+
 	void PrintType() // Function to list by type
 	{
-		cout << "Author Name: \t" << m_AuthorName << endl;
+		cout << "Document Type: \t" << m_DocumentType << endl;
 	}
 	void PrintInfo() // Function to list info
 	{
@@ -32,29 +33,55 @@ public:
 class Book : public Document 
 {
 
-protected:
-	int m_month;
-	int m_year;
+
 public:
+  void PrintAllBooks()
+	  {
+	  	cout << "Books:\n"
+	  			"Adventures In Wonderland\n"
+	  			"The Color Code\n"
+	  			"Color Theory\n";
+	  }
     Book();
     ~Book();
-
+ 
 };
 
 Book :: Book()
 {
+};
+
+Book :: ~Book()
+{
+};
+
+class AdventuresInWonderland : public Book, public Document
+{
+
+public: 
+	AdventuresInWonderland();
+	~AdventuresInWonderland();
+};
+AdventuresInWonderland :: AdventuresInWonderland()
+{
+	  m_BookTitle = "Adventures in WonderLand";
       m_LibraryIDCode = "010010";
       m_CheckoutDuration = "22 Days";
       m_AuthorName = "Some Name"; 
 };
 
-Book :: ~Book()
-{
-}
-
-
-
 class Magazines
+{
+protected:
+	int m_month;
+	int m_year;
+
+public:
+	void Display();
+};
+
+
+class Newspapers
 {
 protected:
 	int m_month;
@@ -77,6 +104,9 @@ public:
 };
 
 
+
+
+
 int main() // Main program
 {
 	char MenuChoice;
@@ -92,17 +122,20 @@ int main() // Main program
 		{
 			case '1': {cout << "Here is a list of all of our documents by type." << endl;
 
-                    Book simplebook = Book();
-                    simplebook.PrintInfo();
+                
   
 					system("pause");}
 					Repeat = false;
 					break;
 			case '2': {cout << "What book would you like more information on?" << endl;
+
+
 					system("pause");}
 					Repeat = false;
 					break;
-			case '3': {cout << "Here are all the documents arranged by author." << endl;
+			case '3': {cout << "Here are all the documents by author." << endl;
+
+
 					system("pause");}
 					Repeat = false;
 					break;
@@ -119,5 +152,6 @@ int main() // Main program
 	}while(Repeat == true);
 }
 /* 	====================================[ BUG NOTES ]=========================================
-
+Book simplebook = Book();
+                    simplebook.PrintInfo();
 =========================================================================================== */
