@@ -1,28 +1,35 @@
-#include <iostream>
-using namespace std;
+#include <iostream> // Starts the preprocessor
+using namespace std; // Sets the namespace
 
-
-
-class Document
+class Document // Creates the Document base class
 {
-protected:
+protected: // Makes variables accessible by subclasses
 	const char* m_LibraryIDCode;
 	const char* m_CheckoutDuration;
 	const char* m_AuthorName;
+	const char* m_DocumentType;
 
 public:
-
-	void PrintInfo()
+	void PrintType() // Function to list by type
 	{
-		cout << "Library ID:" << m_LibraryIDCode << endl;
-		cout << "Checkout Duration:" << m_CheckoutDuration << endl;
-		cout << "Author Name:" << m_AuthorName << endl;
+		cout << "Author Name: \t" << m_AuthorName << endl;
+	}
+	void PrintInfo() // Function to list info
+	{
+		cout << "Library ID: \t" << m_LibraryIDCode << endl;
+		cout << "Checkout Duration: \t" << m_CheckoutDuration << endl;
+		cout << "Author Name: \t" << m_AuthorName << endl;
+	}
+
+	void PrintAuthor() // Function to list by author
+	{
+		cout << "Author Name: \t" << m_AuthorName << endl;
 	}
 };
 
 
-
-class Book : public Document
+// Creates a Book class that can access Document class functions
+class Book : public Document 
 {
 
 protected:
@@ -37,8 +44,8 @@ public:
 Book :: Book()
 {
       m_LibraryIDCode = "010010";
-        m_CheckoutDuration = "22 Days";
-        m_AuthorName = "Some Name"; 
+      m_CheckoutDuration = "22 Days";
+      m_AuthorName = "Some Name"; 
 };
 
 Book :: ~Book()
@@ -70,15 +77,15 @@ public:
 };
 
 
-	int main()
-	{
-		char MenuChoice;
+int main() // Main program
+{
+	char MenuChoice;
 
-		cout << "Welcome to the library! \n"
-				"1. List documents by type \n"
-				"2. Find information on specific book \n"
-				"3. List all documents by author \n"
-				"4. Exit the library application \n";
+	cout << "Welcome to the library! \n"
+			"1. List documents by type \n"
+			"2. Find information on specific book \n"
+			"3. List all documents by author \n"
+			"4. Exit the library application \n";
 
 		cin >> MenuChoice;
 		switch (MenuChoice)
