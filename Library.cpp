@@ -5,7 +5,7 @@ class Documents // Creates the Documents base class
 {
 public: // Makes variables accessible by subclasses
 
-	const char* m_Title1;
+	const char* m_Title1; // Declaration of variables
 	const char* m_Title2;
 	const char* m_Title3;
 
@@ -25,21 +25,21 @@ public: // Makes variables accessible by subclasses
 	const char* m_DocumentType2;
 	const char* m_DocumentType3;
 
-	void PrintDocuments()
+	void PrintDocuments() // Function to print the titles of all documents
 	{
 		cout << m_Title1 << endl;
 		cout << m_Title2 << endl;
 		cout << m_Title3 << endl;		
 	}
 
-	void PrintAuthor()
+	void PrintAuthor() // Function to print the author of all documents
 	{
 		cout << m_AuthorName1 << endl;
 		cout << m_AuthorName2 << endl;
 		cout << m_AuthorName3 << endl;
 	}
 
-	void PrintDocumentInfo1()
+	void PrintDocumentInfo1() // Functions for the full information on each document
 	{
 		cout << "\nTitle: \t" << m_Title1 << endl;
 		cout << "Library ID: \t" << m_LibraryIDCode1 << endl;
@@ -65,8 +65,7 @@ public: // Makes variables accessible by subclasses
 
 };
 
-
-// Creates a Book class that can access Document class functions
+// Creates a Books class that can access Document class functions
 class Books : public Documents 
 {
 public:
@@ -75,7 +74,7 @@ public:
     ~Books();
 };
 
-Books :: Books()
+Books :: Books() // Constructor for the class holding declarations for each variable
 {
      m_Title1 = "Adventures in WonderLand";
      m_LibraryIDCode1 = "010010";
@@ -98,7 +97,7 @@ Books :: ~Books()
 {
 };
 
-
+// Creates a Magazines class that can access Document class functions
 class Magazines : public Documents
 {
 public:
@@ -106,7 +105,7 @@ public:
 	~Magazines();
 };
 
-Magazines :: Magazines()
+Magazines :: Magazines() // Constructor for the class holding declarations for each variable
 {
 	 m_Title1 = "Game Informer";
      m_LibraryIDCode1 = "110010";
@@ -128,6 +127,7 @@ Magazines :: ~Magazines()
 {
 };
 
+// Creates a Newspapers class that can access Document class functions
 class Newspapers : public Documents
 {
 public:
@@ -135,7 +135,7 @@ public:
 	~Newspapers();
 };
 
-Newspapers :: Newspapers()
+Newspapers :: Newspapers() // Constructor for the class holding declarations for each variable
 {
 	 m_Title1 = "The San Francisco Chronicle";
      m_LibraryIDCode1 = "330010";
@@ -157,7 +157,7 @@ Newspapers :: ~Newspapers()
 {
 };
 
-
+// Creates an E-Books class that can access Document class functions
 class EBooks : public Documents
 {
 public:
@@ -165,7 +165,7 @@ public:
     ~EBooks();
 };
 
-EBooks :: EBooks()
+EBooks :: EBooks() // Constructor for the class holding declarations for each variable
 {
 	 m_Title1 = "Spiderman Issue # 1";
      m_LibraryIDCode1 = "777010";
