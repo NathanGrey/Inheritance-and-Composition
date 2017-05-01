@@ -25,6 +25,19 @@ public: // Makes variables accessible by subclasses
 	const char* m_DocumentType2;
 	const char* m_DocumentType3;
 
+	void PrintDocuments()
+	{
+		cout << m_Title1 << endl;
+		cout << m_Title2 << endl;
+		cout << m_Title3 << endl;		
+	}
+
+	void PrintAuthor()
+	{
+		cout << m_AuthorName1 << endl;
+		cout << m_AuthorName2 << endl;
+		cout << m_AuthorName3 << endl;
+	}
 
 	void PrintDocumentInfo1()
 	{
@@ -50,19 +63,6 @@ public: // Makes variables accessible by subclasses
 		cout << "Author Name: \t" << m_AuthorName3 << endl;
 	}
 
-	void PrintDocuments()
-	{
-		cout << m_Title1 << endl;
-		cout << m_Title2 << endl;
-		cout << m_Title3 << endl;		
-	}
-
-	void PrintAuthor()
-	{
-		cout << m_AuthorName1 << endl;
-		cout << m_AuthorName2 << endl;
-		cout << m_AuthorName3 << endl;
-	}
 };
 
 
@@ -231,7 +231,7 @@ int main() // Main program
                     
                     int DocumentChoice;
 
-                    cout << "\nWhich document would youl like more information on?\n\n"
+                    cout << "\nWhich document would you like more information on?\n\n"
                    		    "1. Adventures in WonderLand\n"      
 							"2. Lolita\n"
 							"3. The Great Gatsby\n"
@@ -355,6 +355,114 @@ int main() // Main program
 					EBooks authorebook = EBooks();
                     authorebook.PrintAuthor();
 
+					int DocumentChoice;
+
+					cout << "\nWhich author would you like more information on?\n\n"
+                   		    "1. Lewis Carrol\n"
+							"2. Vladimir Nabokov\n"
+							"3. F. Scott Fitzgerald\n"
+							"4. GameStop\n"
+							"5. Eric A. Havelock\n"
+							"6. Jill Yaworski\n"
+							"7. San Francisco\n"
+							"8. New York\n"
+							"9. London\n"
+							"10. Peter Parker\n"
+							"11. Wade Wilson\n"
+							"12. James Howlett\n\n";
+
+ 					cin >> DocumentChoice;
+
+                    switch (DocumentChoice)
+                    {
+                    	case 1: {
+                    				Books infobook = Books();
+                    				infobook.PrintDocumentInfo1();
+
+                    				}
+                    				break;
+                    	case 2: {
+                    				Books infobook = Books();
+                    				infobook.PrintDocumentInfo2();
+                    				
+                    				}
+                    				break;
+
+                    	case 3: {
+                    				Books infobook = Books();
+                    				infobook.PrintDocumentInfo3();
+                    				
+                    				}
+                    				break;
+
+                    	case 4: {
+                    				Magazines infomag = Magazines();
+                    				infomag.PrintDocumentInfo1();
+                    				
+                    				}
+                    				break;
+
+                    	case 5: {
+                    				Magazines infomag = Magazines();
+                    				infomag.PrintDocumentInfo2();
+                    				
+                    				}
+                    				break;
+
+                    	case 6: {
+                    				Magazines infomag = Magazines();
+                    				infomag.PrintDocumentInfo3();
+                    				
+                    				}
+                    				break;
+
+                    	case 7: {
+                    				Newspapers infonews = Newspapers();
+                    				infonews.PrintDocumentInfo1();
+                    				
+                    				}
+                    				break;
+
+                    	case 8: {
+                    				Newspapers infonews = Newspapers();
+                    				infonews.PrintDocumentInfo2();
+                    				
+                    				}
+                    				break;
+
+                    	case 9: {
+                    				Newspapers infonews = Newspapers();
+                    				infonews.PrintDocumentInfo3();
+                    				
+                    				}
+                    				break;
+
+                    	case 10: {
+                    				EBooks infoebook = EBooks();
+                    				infoebook.PrintDocumentInfo1();
+                    				
+                    				}
+                    				break;
+
+                    	case 11: {
+                    				EBooks infoebook = EBooks();
+                    				infoebook.PrintDocumentInfo2();
+                    				
+                    				}
+                    				break;
+
+                    	case 12: {
+                    				EBooks infoebook = EBooks();
+                    				infoebook.PrintDocumentInfo3();
+                    				
+                    				}
+                    				break;
+
+                    	default: {cout << "Invalid choice.";
+                    				system("pause");
+                    				}
+                    				break;
+                    }
 					system("pause");}
 					Repeat = false;
 					break;
@@ -373,19 +481,4 @@ int main() // Main program
 }
 /* 	====================================[ BUG NOTES ]=========================================
 
-        cout << "Title: \t" << m_Title1 << endl;
-		cout << "Library ID: \t" << m_LibraryIDCode1 << endl;
-		cout << "Checkout Duration: \t" << m_CheckoutDuration1 << endl;
-		cout << "Author Name: \t" << m_AuthorName1 << endl;
-
-		cout << "Title: \t" << m_Title2 << endl;
-		cout << "Library ID: \t" << m_LibraryIDCode2 << endl;
-		cout << "Checkout Duration: \t" << m_CheckoutDuration2 << endl;
-		cout << "Author Name: \t" << m_AuthorName2 << endl;
-
-		cout << "Title: \t" << m_Title3 << endl;		
-		cout << "Library ID: \t" << m_LibraryIDCode3 << endl;
-		cout << "Checkout Duration: \t" << m_CheckoutDuration3 << endl;
-		cout << "Author Name: \t" << m_AuthorName3 << endl;
 =========================================================================================== */
-
