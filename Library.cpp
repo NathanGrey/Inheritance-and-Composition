@@ -1,7 +1,7 @@
 #include <iostream> // Starts the preprocessor
 using namespace std; // Sets the namespace
 
-class Document // Creates the Document base class
+class Documents // Creates the Documents base class
 {
 public: // Makes variables accessible by subclasses
 
@@ -61,15 +61,15 @@ public: // Makes variables accessible by subclasses
 
 
 // Creates a Book class that can access Document class functions
-class Book : public Document 
+class Books : public Documents 
 {
 public:
 
-    Book();
-    ~Book();
+    Books();
+    ~Books();
 };
 
-Book :: Book()
+Books :: Books()
 {
      m_Title1 = "Adventures in WonderLand";
      m_LibraryIDCode1 = "010010";
@@ -88,12 +88,12 @@ Book :: Book()
 
 };
 
-Book :: ~Book()
+Books :: ~Books()
 {
 };
 
 
-class Magazines : public Document
+class Magazines : public Documents
 {
 public:
 	Magazines();
@@ -122,7 +122,7 @@ Magazines :: ~Magazines()
 {
 };
 
-class Newspapers : public Document
+class Newspapers : public Documents
 {
 public:
 	Newspapers();
@@ -152,7 +152,7 @@ Newspapers :: ~Newspapers()
 };
 
 
-class EBooks : public Document
+class EBooks : public Documents
 {
 public:
     EBooks();
@@ -185,22 +185,44 @@ int main() // Main program
 {
 	char MenuChoice;
 	bool Repeat = false;
-	cout << "Welcome to the library! \n"
-			"1. List documents by type \n"
-			"2. Find information on specific book \n"
-			"3. List all documents by author \n"
-			"4. Exit the library application \n";
+	cout << "\n=====================================================\n"
+			"\t Welcome to the Library! \n"
+			"=====================================================\n\n"
+			"1. List documents by type \n \n"
+			"2. Find information on specific book \n \n"
+			"3. List all documents by author \n \n"
+			"4. Exit the library application \n \n";
 	do{
 		cin >> MenuChoice;
 		switch (MenuChoice)
 		{
-			case '1': {cout << "Here is a list of all of our documents by type." << endl;
-                    Book simplebook = Book();
+			case '1': {cout << "\nHere is a list of all of our documents by type.\n"
+					"\n--------------------------------------------\n"
+					"\t Books \n"
+					"--------------------------------------------\n\n";
+                    Books simplebook = Books();
                     simplebook.PrintDocuments();
-
+                    
+                    cout <<
+					"\n--------------------------------------------\n"
+					"\t Magazines \n"
+					"--------------------------------------------\n\n";
                     Magazines simplemagazine = Magazines();
                     simplemagazine.PrintDocuments();
 
+                    cout <<
+					"\n--------------------------------------------\n"
+					"\t Newspapers \n"
+					"--------------------------------------------\n\n";
+                    Newspapers simplenewspaper = Newspapers();
+                    simplenewspaper.PrintDocuments();
+
+                    cout <<
+					"\n--------------------------------------------\n"
+					"\t E-Books \n"
+					"--------------------------------------------\n\n";
+                    EBooks simpleebook = EBooks();
+                    simpleebook.PrintDocuments();
                     
   
 					system("pause");}
@@ -234,6 +256,3 @@ int main() // Main program
 Book simplebook = Book();
                     simplebook.PrintInfo();
 =========================================================================================== */
-
-
-
