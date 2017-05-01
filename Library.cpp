@@ -187,7 +187,7 @@ EBooks :: ~EBooks()
 {
 };
 
-int ChoiceSwitch()
+int ChoiceSwitch() // Function for the user input
 {
       int DocumentChoice;
       cin >> DocumentChoice;
