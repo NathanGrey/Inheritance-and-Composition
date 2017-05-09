@@ -1,191 +1,192 @@
 #include <iostream> // Starts the preprocessor
 using namespace std; // Sets the namespace
 
-class Documents // Creates the Documents base class
+class Library // Creates the Library base class
 {
-public: // Makes variables accessible by subclasses
+protected: // Makes variables accessible by subclasses
 
-     const char* m_Title1; // Declaration of variables
-     const char* m_Title2;
-     const char* m_Title3;
+     const char* m_Title; // Declaration of variables
+     const char* m_LibraryIDCode;
+     const char* m_CheckoutDuration;
+     const char* m_AuthorName;
 
-     const char* m_LibraryIDCode1;
-     const char* m_LibraryIDCode2;
-     const char* m_LibraryIDCode3;
-
-     const char* m_CheckoutDuration1;
-     const char* m_CheckoutDuration2;
-     const char* m_CheckoutDuration3;
-
-     const char* m_AuthorName1;
-     const char* m_AuthorName2;
-     const char* m_AuthorName3;
-
-     const char* m_DocumentType1;
-     const char* m_DocumentType2;
-     const char* m_DocumentType3;
 
      void PrintDocuments() // Function to print the titles of all documents
      {
-          cout << m_Title1 << endl;
-          cout << m_Title2 << endl;
-          cout << m_Title3 << endl;          
+          cout << m_Title << endl;      
      }
 
      void PrintAuthor() // Function to print the author of all documents
      {
-          cout << m_AuthorName1 << endl;
-          cout << m_AuthorName2 << endl;
-          cout << m_AuthorName3 << endl;
+          cout << m_AuthorName << endl;
      }
 
-     void PrintDocumentInfo1() // Functions for the full information on each document
+     void PrintDocumentInfo() // Functions for the full information on each document
      {
-          cout << "\nTitle: \t" << m_Title1 << endl;
-          cout << "Library ID: \t" << m_LibraryIDCode1 << endl;
-          cout << "Checkout Duration: \t" << m_CheckoutDuration1 << endl;
-          cout << "Author Name: \t" << m_AuthorName1 << endl;
+          cout << "\nTitle: \t" << m_Title << endl;
+          cout << "Library ID: \t" << m_LibraryIDCode << endl;
+          cout << "Checkout Duration: \t" << m_CheckoutDuration << endl;
+          cout << "Author Name: \t" << m_AuthorName << endl;
      }
 
-     void PrintDocumentInfo2()
-     {
-          cout << "\nTitle: \t" << m_Title2 << endl;
-          cout << "Library ID: \t" << m_LibraryIDCode2 << endl;
-          cout << "Checkout Duration: \t" << m_CheckoutDuration2 << endl;
-          cout << "Author Name: \t" << m_AuthorName2 << endl;
-     }
-     
-     void PrintDocumentInfo3()
-     {
-          cout << "\nTitle: \t" << m_Title3 << endl;
-          cout << "Library ID: \t" << m_LibraryIDCode3 << endl;
-          cout << "Checkout Duration: \t" << m_CheckoutDuration3 << endl;
-          cout << "Author Name: \t" << m_AuthorName3 << endl;
-     }
     
 };
 
 // Creates a Books class that can access Document class functions
-class Books : public Documents 
+class Books : public Library
 {
-public:
 
-    Books();
-    ~Books();
-};
-
-Books :: Books() // Constructor for the class holding declarations for each variable
-{
-     m_Title1 = "Adventures in WonderLand";
-     m_LibraryIDCode1 = "010010";
-     m_CheckoutDuration1 = "22 Days";
-     m_AuthorName1 = "Lewis Carrol"; 
-       
-     m_Title2 = "Lolita";
-     m_LibraryIDCode2 = "010020";
-     m_CheckoutDuration2 = "7 Days";
-     m_AuthorName2 = "Vladimir Nabokov"; 
-
-     m_Title3 = "The Great Gatsby";
-     m_LibraryIDCode3 = "010077";
-     m_CheckoutDuration3 = "3 Days";
-     m_AuthorName3 = "F. Scott Fitzgerald"; 
 
 };
 
-Books :: ~Books()
+class AdventuresinWonderLand : public Books, public Library
 {
+private:
+
+     m_Title = "Adventures in WonderLand";
+     m_LibraryIDCode = "010010";
+     m_CheckoutDuration = "22 Days";
+     m_AuthorName = "Lewis Carrol"; 
+
 };
 
+class Lolita : public Books, public Library
+{
+private:
+
+     m_Title = "Lolita";
+     m_LibraryIDCode = "010020";
+     m_CheckoutDuration = "7 Days";
+     m_AuthorName = "Vladimir Nabokov"; 
+
+};
+
+class TheGreatGatsby : public Books, public Library
+{
+private:
+
+     m_Title = "The Great Gatsby";
+     m_LibraryIDCode = "010077";
+     m_CheckoutDuration = "3 Days";
+     m_AuthorName = "F. Scott Fitzgerald"; 
+
+};
 // Creates a Magazines class that can access Document class functions
 class Magazines : public Documents
 {
-public:
-     Magazines();
-     ~Magazines();
+
+
+
 };
 
-Magazines :: Magazines() // Constructor for the class holding declarations for each variable
+class GameInformer : public Magazines, public Library
 {
-      m_Title1 = "Game Informer";
-     m_LibraryIDCode1 = "110010";
-     m_CheckoutDuration1 = "14 Days";
-     m_AuthorName1 = "GameStop"; 
-       
-     m_Title2 = "Communication Arts";
-     m_LibraryIDCode2 = "111020";
-     m_CheckoutDuration2 = "2 Days";
-     m_AuthorName2 = "Eric A. Havelock"; 
+private:
 
-     m_Title3 = "Men's Health";
-     m_LibraryIDCode3 = "110073";
-     m_CheckoutDuration3 = "27 Days";
-     m_AuthorName3 = "Jill Yaworski"; 
+     m_Title = "Game Informer";
+     m_LibraryIDCode = "110010";
+     m_CheckoutDuration = "14 Days";
+     m_AuthorName = "GameStop"; 
+
 };
 
-Magazines :: ~Magazines()
+class CommunicationArts : public Magazines, public Library
 {
+private:
+
+     m_Title = "Communication Arts";
+     m_LibraryIDCode = "111020";
+     m_CheckoutDuration = "2 Days";
+     m_AuthorName = "Eric A. Havelock";  
+
 };
+
+class MensHealth : public Magazines, public Library
+{
+private:
+
+     m_Title = "Men's Health";
+     m_LibraryIDCode = "110073";
+     m_CheckoutDuration = "27 Days";
+     m_AuthorName = "Jill Yaworski"; 
+
+};
+
+
 
 // Creates a Newspapers class that can access Document class functions
-class Newspapers : public Documents
+class Newspapers : public Library
 {
-public:
-     Newspapers();
-     ~Newspapers();
+
+
+     
 };
 
-Newspapers :: Newspapers() // Constructor for the class holding declarations for each variable
-{
-      m_Title1 = "The San Francisco Chronicle";
-     m_LibraryIDCode1 = "330010";
-     m_CheckoutDuration1 = "1 Day";
-     m_AuthorName1 = "San Francisco"; 
-       
-     m_Title2 = "The New Yorker";
-     m_LibraryIDCode2 = "333020";
-     m_CheckoutDuration2 = "1 Day";
-     m_AuthorName2 = "New York"; 
 
-     m_Title3 = "The Sun and The Mirror";
-     m_LibraryIDCode3 = "334073";
-     m_CheckoutDuration3 = "1 Day";
-     m_AuthorName3 = "London"; 
+class TheSanFranciscoChronicle : public Newspapers, public Library
+{
+private:
+
+     m_Title = "The San Francisco Chronicle";
+     m_LibraryIDCode = "330010";
+     m_CheckoutDuration = "1 Day";
+     m_AuthorName = "San Francisco"; 
 };
 
-Newspapers :: ~Newspapers()
+class TheNewYorker : public Newspapers, public Library
 {
+private:
+
+     m_Title = "The New Yorker";
+     m_LibraryIDCode = "330010";
+     m_CheckoutDuration = "1 Day";
+     m_AuthorName = "San Francisco"; 
 };
+
+class TheSunandTheMirror : public Newspapers, public Library
+{
+private:
+
+     m_Title = "The Sun and The Mirror";
+     m_LibraryIDCode = "334073";
+     m_CheckoutDuration = "1 Day";
+     m_AuthorName = "London"; 
+};
+
+
+
 
 // Creates an E-Books class that can access Document class functions
 class EBooks : public Documents
 {
 public:
-    EBooks();
-    ~EBooks();
-};
 
-EBooks :: EBooks() // Constructor for the class holding declarations for each variable
-{
-      m_Title1 = "Spiderman Issue # 1";
-     m_LibraryIDCode1 = "777010";
-     m_CheckoutDuration1 = "10 Days";
-     m_AuthorName1 = "Peter Parker"; 
+     m_Title = "Spiderman Issue # 1";
+     m_LibraryIDCode = "777010";
+     m_CheckoutDuration = "10 Days";
+     m_AuthorName = "Peter Parker"; 
        
-     m_Title2 = "Deadpool Issue # 7";
-     m_LibraryIDCode2 = "777820";
-     m_CheckoutDuration2 = "20 Days";
-     m_AuthorName2 = "Wade Wilson"; 
+     m_Title = "Deadpool Issue # 7";
+     m_LibraryIDCode = "777820";
+     m_CheckoutDuration = "20 Days";
+     m_AuthorName = "Wade Wilson"; 
 
-     m_Title3 = "Wolverine Issue # 23";
-     m_LibraryIDCode3 = "118973";
-     m_CheckoutDuration3 = "6 Days";
-     m_AuthorName3 = "James Howlett"; 
+     m_Title = "Wolverine Issue # 23";
+     m_LibraryIDCode = "118973";
+     m_CheckoutDuration = "6 Days";
+     m_AuthorName = "James Howlett"; 
 };
 
-EBooks :: ~EBooks()
+class SpidermanIssue1 : public EBooks, public Library
 {
+private:
+
+     m_Title = "The Sun and The Mirror";
+     m_LibraryIDCode = "334073";
+     m_CheckoutDuration = "1 Day";
+     m_AuthorName = "London"; 
 };
+
 
 int ChoiceSwitch() // Function for the user input
 {
@@ -301,30 +302,25 @@ int main() // Main program
                          "\n--------------------------------------------\n"
                          "\t Books \n"
                          "--------------------------------------------\n\n";
-                    Books simplebook = Books();
-                    simplebook.PrintDocuments();
+                    
                     
                     cout <<
                          "\n--------------------------------------------\n"
                          "\t Magazines \n"
                          "--------------------------------------------\n\n";
-                    Magazines simplemagazine = Magazines();
-                    simplemagazine.PrintDocuments();
+                   
 
                     cout <<
                          "\n--------------------------------------------\n"
                          "\t Newspapers \n"
                          "--------------------------------------------\n\n";
-                    Newspapers simplenewspaper = Newspapers();
-                    simplenewspaper.PrintDocuments();
-
+                 
                     cout <<
                          "\n--------------------------------------------\n"
                          "\t E-Books \n"
                          "--------------------------------------------\n\n";
                   
-                    EBooks simpleebook = EBooks();
-                    simpleebook.PrintDocuments();
+                   
 
 
                     cout << "\nWhich document would you like more information on?\n\n"
@@ -349,17 +345,7 @@ int main() // Main program
 
                case '2': {cout << "Here are all the documents by author." << endl;
 
-                    Books authorbook = Books();
-                    authorbook.PrintAuthor();
-
-                    Magazines authormagazine = Magazines();
-                    authormagazine.PrintAuthor();
-
-                    Newspapers authornewspaper = Newspapers();
-                    authornewspaper.PrintAuthor();
-
-                    EBooks authorebook = EBooks();
-                    authorebook.PrintAuthor();
+                    
 
                          cout << "\nWhich author would you like more information on?\n\n"
                              "1. Lewis Carrol\n"
